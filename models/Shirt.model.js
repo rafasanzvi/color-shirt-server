@@ -14,7 +14,7 @@ const shirtSchema = new Schema(
         },
 
         style: {
-            type: [String],
+            type: String,
             required: [true, 'You must write the shirt style.']
         },
 

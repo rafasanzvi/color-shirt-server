@@ -6,11 +6,12 @@
 | POST         	| `api/shirts/create` 	| Creates shirt 	|  Create a new shirt
 | GET         	| `api/shirts/:id` 	| Returns shirt details	|  {shirts} 
 | PUT         	| `api/shirts/:id/edit` 	|edits shirts 	|  {user} 
+| DELETE        | `api/shirts/delete` | delete shirt | {message: "Your shirt has been deleted"}
 | PUT           | `api/subscribe` | update isSubscribed: true | 
 | GET         	| `api/users/list` 	| returns user list 	|  [{user}]
 | GET         	| `api/users/:id` 	| returns user details	|  {user}
 | PUT         	| `api/users/:id/edit` 	| edits user 	|  {user}
-| DELETE        | `api/users/deleter` | delete user | {message: "Your user has been deleted"}
+| DELETE        | `api/users/delete` | delete user | {message: "Your user has been deleted"}
 
 
 ## Auth endpoints

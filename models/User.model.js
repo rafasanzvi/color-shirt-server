@@ -8,6 +8,11 @@ const userSchema = new Schema(
       required: [true, 'Email is required.']
     },
 
+    username: {
+      type: String,
+      required: [true, 'Name is required.']
+    },
+
     name: {
       type: String,
       required: [true, 'Name is required.']
@@ -25,7 +30,6 @@ const userSchema = new Schema(
 
     address: {
       type: String,
-      required: [true, 'Address is required']
     },
 
     dateOfBirth: {
@@ -35,7 +39,6 @@ const userSchema = new Schema(
     clientSize: {
       type: [String],
       enum: ["S", "M", "L", "XL"],
-      required: [true, 'You must choose the sizes of the shirt.']
     },
 
     favouriteShirts: [{

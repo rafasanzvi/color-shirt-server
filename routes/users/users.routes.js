@@ -1,19 +1,12 @@
-const router = require("express").Router()
-const Shirt = require('../../models/Shirt.model')
+const router = require("express").Router();
+const Shirt = require("../../models/Shirt.model")
+const User = require("../../models/User.model")
 
 
-router.get("/", (req, res) => {
+router.get("/list", (req, res) => {
 
-    Shirt
+    User
         .find()
-        .then(response => res.json(response))
-        .catch(err => res.status(500).json(err))
-})
-
-router.post("/create", (req, res) => {
-
-    Shirt
-        .create(req.body)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
@@ -22,17 +15,18 @@ router.get("/:id", (req, res) => {
 
     const { id } = req.params
 
-    Shirt
-        .findById(id)
+    User
+        .find(id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
+
 })
 
-router.put("/:id/edit", (req, res) => {
+router.get("/:id/edit", (req, res) => {
 
     const { id } = req.params
 
-    Shirt
+    User
         .findById(id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
@@ -42,13 +36,10 @@ router.delete("/:id/delete", (req, res) => {
 
     const { id } = req.params
 
-    Shirt
+    User
         .findByIdAndDelete(id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
 
-
-
-
-module.exports = router
+module.exports = router;

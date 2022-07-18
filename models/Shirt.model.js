@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose")
 
 const shirtSchema = new Schema(
     {
-        shirtName: {
+        name: {
             type: String,
             required: [true, 'You must write the name of the shirt.']
         },
@@ -18,28 +18,24 @@ const shirtSchema = new Schema(
             required: [true, 'You must write the shirt style.']
         },
 
-        colour: {
+        color: {
             type: [String],
-            required: [true, 'You must write the shirt colour']
+            required: [true, 'You must write the shirt color']
         },
 
-        files: {
-            type: [String]
-        },
-
-        imageURL: {
+        images: {
             type: [String]
         },
 
         fabric: {
-            type: [String],
+            type: String,
             required: [true, 'You must write the shirt fabric']
         },
 
-        price: {
-            type: [Number],
+        /* price: {
+            type: Number,
             required: [true, 'You must write the price of the shirt']
-        },
+        }, */
 
         sizes: {
             type: [String],

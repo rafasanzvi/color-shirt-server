@@ -9,7 +9,7 @@
 | PUT           | `api/subscribe` | update isSubscribed: true | 
 | GET         	| `api/users/list` 	| returns user list 	|  [{user}]
 | GET         	| `api/users/:id` 	| returns user details	|  {user}
-| PUT         	| `api/users/:id/edit` 	| edits user 	|  {user} Updates existing users
+| PUT         	| `api/users/:id/edit` 	| edits user 	|  {user}
 | DELETE        | `api/users/deleter` | delete user | {message: "Your user has been deleted"}
 
 
@@ -17,5 +17,5 @@
 
 | POST         	| `api/register` 	| registers user 	|  Create a new user
 | POST         	| `api/login` 	|checks credentials	|  Login user
-| POST          | `api/loggout` | close session | 
-# color-shirt-server
+| GET          | `api/verify` | verifies token | 
+

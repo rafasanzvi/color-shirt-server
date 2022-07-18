@@ -8,10 +8,9 @@ const userSchema = new Schema(
       required: [true, 'Email is required.']
     },
 
-    username: {
+    name: {
       type: String,
-      unique: true,
-      required: [true, 'Username is required.']
+      required: [true, 'Name is required.']
     },
 
     password: {
@@ -20,7 +19,7 @@ const userSchema = new Schema(
 
     role: {
       type: String,
-      enum: ['ADMIN', 'CLIENT'], //Staff??
+      enum: ['ADMIN', 'CLIENT'],
       default: 'CLIENT'
     },
 
@@ -39,7 +38,7 @@ const userSchema = new Schema(
       required: [true, 'You must choose the sizes of the shirt.']
     },
 
-    favouriteShirt: [{
+    favouriteShirts: [{
       type: Schema.Types.ObjectId,
       ref: 'Shirt'
     }],

@@ -11,28 +11,28 @@ router.get("/list", (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.get("/:id", (req, res) => {
+router.get("/:user_id", (req, res) => {
 
-    const { id } = req.params
+    const { user_id } = req.params
 
     User
-        .find(id)
+        .find(user_id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 
 })
 
-router.get("/:id/edit", (req, res) => {
+router.put("/:user_id/edit", (req, res) => {
 
-    const { id } = req.params
+    const { user_id } = req.params
 
     User
-        .findById(id)
+        .findById(user_id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
 
-router.delete("/:id/delete", (req, res) => {
+router.delete("/:user_id/delete", (req, res) => {
 
     const { id } = req.params
 

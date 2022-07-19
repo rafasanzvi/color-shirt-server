@@ -7,8 +7,8 @@ const shirtSchema = new Schema(
             required: [true, 'You must write the name of the shirt.']
         },
 
-        originCountry: {
-            type: [String],
+        origin: {
+            type: String,
             enum: ["Africa", "America", "Europe", "Asia", "Oceania"],
             required: [true, 'You must fill the autoctonous region of the shirt.']
         },
@@ -18,7 +18,7 @@ const shirtSchema = new Schema(
             required: [true, 'You must write the shirt style.']
         },
 
-        color: {
+        colors: {
             type: [String],
             required: [true, 'You must write the shirt color']
         },

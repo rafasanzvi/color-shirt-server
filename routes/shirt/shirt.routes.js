@@ -18,32 +18,32 @@ router.post("/create", (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.get("/:id", (req, res) => {
+router.get("/:shirt_id", (req, res) => {
 
-    const { id } = req.params
+    const { shirt_id } = req.params
 
     Shirt
-        .findById(id)
+        .findById(shirt_id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
 
-router.put("/:id/edit", (req, res) => {
+router.put("/:shirt_id/edit", (req, res) => {
 
-    const { id } = req.params
+    const { shirt_id } = req.params
 
     Shirt
-        .findById(id)
+        .findById(shirt_id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
 
-router.delete("/:id/delete", (req, res) => {
+router.delete("/:shirt_id/delete", (req, res) => {
 
-    const { id } = req.params
+    const { shirt_id } = req.params
 
     Shirt
-        .findByIdAndDelete(id)
+        .findByIdAndDelete(shirt_id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })

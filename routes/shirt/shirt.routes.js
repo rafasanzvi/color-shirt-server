@@ -2,7 +2,7 @@ const router = require("express").Router()
 const Shirt = require('../../models/Shirt.model')
 
 
-router.get("/", (req, res) => {
+router.get("/list", (req, res) => {
 
     Shirt
         .find()

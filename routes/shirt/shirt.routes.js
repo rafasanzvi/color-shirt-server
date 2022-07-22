@@ -6,16 +6,21 @@ router.get("/list", (req, res) => {
 
     Shirt
         .find()
+        .select({ name: 1, description: 1, images: 1 })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
 
 router.post("/create", (req, res) => {
 
+    const { name, origin, style, colors, images, fabric, sizes, description } = req.body
+
+    const colorsArray = colors.split(", ")
+
     Shirt
-        .create(req.body)
+        .create({ name, origin, style, colors: colorsArray, images, fabric, sizes, description })
         .then(response => res.json(response))
-        .catch(err => res.status(500).json(err))
+        .catch(err => console.log(err))
 })
 
 router.get("/:shirt_id", (req, res) => {
@@ -30,10 +35,12 @@ router.get("/:shirt_id", (req, res) => {
 
 router.put("/:shirt_id/edit", (req, res) => {
 
-    const { shirt_id } = req.params
+    const { shirt_id, name, origin, style, colors, images, fabric, sizes, description } = req.params
+
+    const colorsArray = colors.split(", ")
 
     Shirt
-        .findById(shirt_id)
+        .findById({ shirt_id, name, origin, style, colors: colorsArray, images, fabric, sizes, description })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })

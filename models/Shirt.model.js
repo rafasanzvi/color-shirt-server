@@ -10,7 +10,7 @@ const shirtSchema = new Schema(
         origin: {
             type: String,
             enum: ["Africa", "America", "Europe", "Asia", "Oceania"],
-            required: [true, 'You must fill the autoctonous region of the shirt.']
+            required: true
         },
 
         style: {
@@ -40,7 +40,7 @@ const shirtSchema = new Schema(
         sizes: {
             type: [String],
             enum: ["S", "M", "L", "XL"],
-            required: [true, 'You must fill the sizes of the shirt.']
+            // required: [true, 'You must fill the sizes of the shirt.']
         },
 
         description: {

@@ -31,7 +31,6 @@ router.post('/register', (req, res, next) => {
         })
         .then((createdUser) => {
 
-            console.log('----', createdUser)
             const { email, username, _id } = createdUser
             const user = { email, username, _id }
 
@@ -50,11 +49,11 @@ router.post('/register', (req, res, next) => {
 
 router.post('/login', (req, res, next) => {
 
-    const { email, password } = req.body;
+    const { email, password } = req.body
 
     if (email === '' || password === '') {
-        res.status(400).json({ message: "Provide email and password." });
-        return;
+        res.status(400).json({ message: "Provide email and password." })
+        return
     }
 
     User
@@ -63,12 +62,12 @@ router.post('/login', (req, res, next) => {
 
             if (!foundUser) {
                 res.status(401).json({ message: "User not found." })
-                return;
+                return
             }
 
             if (bcrypt.compareSync(password, foundUser.password)) {
 
-                const { _id, email, username } = foundUser;
+                const { _id, email, username } = foundUser
 
                 const payload = { _id, email, username }
 

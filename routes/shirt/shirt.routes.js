@@ -35,9 +35,12 @@ router.get("/:shirt_id", (req, res) => {
 
 router.put("/:shirt_id/edit", (req, res) => {
 
-    const { shirt_id, name, origin, style, colors, images, fabric, sizes, description } = req.params
+    const { shirt_id, name, origin, style, colors, images, fabric, sizes, description } = req.body
 
-    const colorsArray = colors.split(", ")
+    console.log('----->', typeof colors)
+    const colorsArray = colors.split(",")
+
+
 
     Shirt
         .findById({ shirt_id, name, origin, style, colors: colorsArray, images, fabric, sizes, description })

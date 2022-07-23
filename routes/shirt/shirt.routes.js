@@ -35,15 +35,15 @@ router.get("/:shirt_id", (req, res) => {
 
 router.put("/:shirt_id/edit", (req, res) => {
 
-    const { shirt_id, name, origin, style, colors, images, fabric, sizes, description } = req.body
+    const { shirt_id } = req.params
+
+    const { name, origin, style, colors, images, fabric, sizes, description } = req.body
 
     console.log('----->', typeof colors)
-    const colorsArray = colors.split(",")
-
-
+    const colorsArray = colors[0].split(",")
 
     Shirt
-        .findById({ shirt_id, name, origin, style, colors: colorsArray, images, fabric, sizes, description })
+        .findByIdAndUpdate(shirt_id, { name, origin, style, colors: colorsArray, images, fabric, sizes, description })
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })

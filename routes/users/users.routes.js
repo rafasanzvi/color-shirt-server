@@ -12,11 +12,11 @@ router.get("/list", (req, res) => {
 })
 
 router.get("/:user_id", (req, res) => {
-
+    console.log(req.params)
     const { user_id } = req.params
 
     User
-        .find(user_id)
+        .findById(user_id)
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 

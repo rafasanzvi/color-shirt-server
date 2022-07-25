@@ -13,15 +13,6 @@ router.get("/list", (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.get("/:user_id", (req, res) => {
-    const { user_id } = req.params
-
-    User
-        .findById(user_id)
-        .then(response => res.json(response))
-        .catch(err => res.status(500).json(err))
-
-})
 
 router.put("/editUser/:user_id/", (req, res) => {
 
@@ -43,20 +34,49 @@ router.delete("/:user_id/delete", (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-router.put("/addFav/shirt_id", isAuthenticated, (req, res) => {
+
+router.get("/getUserFavs", isAuthenticated, (req, res) => {
+
+    const { _id: user_id } = req.payload
+
+    User
+        .findById(user_id)
+        .select('favouriteShirts')
+        .then(response => res.json(response.favouriteShirts))
+        .catch(err => res.status(500).json(err))
+
+})
+
+router.put("/addFav/:shirt_id", isAuthenticated, (req, res) => {
 
     const { _id: user_id } = req.payload
     const { shirt_id } = req.params
 
+    User
+        .findByIdAndUpdate(user_id, { $addToSet: { favouriteShirts: shirt_id } })
+        .then(response => res.json(response))
+        .catch(err => res.status(500).json(err))
+})
 
-    console.log('CONTROL')
-    console.log('ID USUARIO', user_id)
-    console.log('ID CAMISAQ', shirt_id)
+router.put("/removeFav/:shirt_id", isAuthenticated, (req, res) => {
 
-    // User
-    //     .findByIdAndUpdate(user_id, { favouriteShirts: { $push: shirt_id } })
-    //     .then(response => res.json(response))
-    //     .catch(err => res.status(500).json(err))
+    const { shirt_id } = req.params
+    const { _id: user_id } = req.payload
+
+    User
+        .findByIdAndUpdate(user_id, { $pull: { favouriteShirts: shirt_id } })
+        .then(response => res.json(response))
+        .catch(err => res.status(500).json(err))
+})
+
+
+router.get("/:user_id", (req, res) => {
+    const { user_id } = req.params
+
+    User
+        .findById(user_id)
+        .then(response => res.json(response))
+        .catch(err => res.status(500).json(err))
 })
 
 module.exports = router;

@@ -13,6 +13,29 @@ router.get("/list", (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
+router.put("/addSubscription", isAuthenticated, (req, res) => {
+
+    const { _id: user_id } = req.payload
+
+    User
+        .findByIdAndUpdate(user_id, { isSuscribed: true }, { new: true })
+        .select('isSuscribed')
+        .then(response => res.json(response.isSuscribed))
+        .catch(err => res.status(500).json(err))
+
+})
+
+router.put("/removeSubscription", isAuthenticated, (req, res) => {
+
+    const { _id: user_id } = req.payload
+
+    User
+        .findByIdAndUpdate(user_id, { isSuscribed: false }, { new: true })
+        .select('isSuscribed')
+        .then(response => res.json(response.isSuscribed))
+        .catch(err => res.status(500).json(err))
+
+})
 
 router.put("/editUser/:user_id/", (req, res) => {
 
@@ -33,7 +56,6 @@ router.delete("/:user_id/delete", (req, res) => {
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })
-
 
 router.get("/getUserFavs", isAuthenticated, (req, res) => {
 
@@ -69,8 +91,8 @@ router.put("/removeFav/:shirt_id", isAuthenticated, (req, res) => {
         .catch(err => res.status(500).json(err))
 })
 
-
 router.get("/:user_id", (req, res) => {
+
     const { user_id } = req.params
 
     User

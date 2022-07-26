@@ -64,6 +64,7 @@ router.get("/getUserFavs", isAuthenticated, (req, res) => {
     User
         .findById(user_id)
         .select('favouriteShirts')
+        .populate('favouriteShirts')
         .then(response => res.json(response.favouriteShirts))
         .catch(err => res.status(500).json(err))
 
@@ -97,6 +98,7 @@ router.get("/:user_id", (req, res) => {
 
     User
         .findById(user_id)
+        .populate('favouriteShirts')
         .then(response => res.json(response))
         .catch(err => res.status(500).json(err))
 })

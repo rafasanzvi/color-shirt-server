@@ -33,7 +33,8 @@ const userSchema = new Schema(
     },
 
     dateOfBirth: {
-      type: Date
+      type: Date,
+      default: Date.now()
     },
 
     clientSize: {

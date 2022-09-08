@@ -12,21 +12,28 @@
 
 <!--DESCRIPTION-->
 <p>
-This project was done in just 1 week as part of our web development Bootcamp assignments at Ironhack. Requirements: create an app just using JavaScript, HTML, CSS, Handlebars, NodeJS, Express, MongoDB an homemade internal API Rest and an external API using Google Maps.
+This project was done in just 2 week as part of our web development Bootcamp assignments at Ironhack and it was my first project in solitary. Requirements: create an app just using JavaScript, HTML, CSS, NodeJS, Express, MongoDB, REACT and React-Bootstrap an homemade internal API Rest about users and shirts.
   
-The project is based on an encyclopaedia of plants whose characteristics are being researched for medicinal use. The user can access the specific plants and see their characteristics, as well as access a list of events in different parts of the world and register and see their location via Google Maps.  
+The project is based on an business model in which the user registers and pays a subscription, thanks to which every month he/she will receive a random Policroma T-shirt at home.
+ 
+The user can choose his or her favourites from the gallery of shirts if he or she wants to receive a special one.  
 </p>
   
 <!--MAIN FEATURES-->  
+ 
   <h3>Main Features</h3>
   
-- Role play where we have admin, staff and users with different privileges.
+- Role play where we have admin and users with different privileges.
 - Registration and authentication system
 - Protected routes
-- Database of users, events and plants in MongoDB.  
-- Plants gallery, events and users list
+- Database of users and shirts in MongoDB and API Rest with NodeJS.  
+- Shirts gallery, users list if you are admin where you can manage the differents dates and features
 - CRUD system
-- Rendering from back-end  
+- Conditional rendering  
+- Atomic design with React
+- Payment gateway 
+- Local file upload
+- Personalised favourites in each profile 
 
 ---
 <br>

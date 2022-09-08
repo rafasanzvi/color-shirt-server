@@ -39,15 +39,14 @@ The user can choose his or her favourites from the gallery of shirts if he or sh
 <br>
 <!--LINK-->
 <div id="link" align="center">
-<img src="https://i.postimg.cc/cJfn2PQn/Portada-Trip-and-trip.jpg" width="400" height="210"/></a>
+<img src="https://i.postimg.cc/tgrYKys7/Policroma-portada.jpg" width="400" height="210"/></a>
 </div>
 
 <br>
 
-<h3 align="center">:mushroom: Want to take a look? <a href="https://trip-and-trip.herokuapp.com/plants">Click here</a> :mushroom: </h3>
+<h3 align="center"> :shirt: Want to take a look? <a href="https://policroma.netlify.app/">Click here</a> :shirt: </h3>
   
   
- <h3>App routes</h3>
 
 ## API endpoints
 
